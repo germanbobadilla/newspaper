@@ -1,20 +1,26 @@
 export default [
   {
-    name: 'Software Engineering'
+    name: 'Software Engineering',
+    href: '/softwareengineering'
   },
   {
-    name: 'FAANG'
+    name: 'FAANG',
+    href: '/faang'
   },
   {
-    name: 'Interview'
+    name: 'Interview',
+    href: '/interview'
   },
   {
-    name: 'Computer Science'
+    name: 'Computer Science',
+    href: '/computerscience'
   },
   {
-    name: 'Books'
+    name: 'Books',
+    href: '/books'
   },
   {
-    path: 'Tutorials'
+    name: 'Tutorials',
+    href: '/tutorials'
   }
 ];

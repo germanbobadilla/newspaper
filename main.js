@@ -12,26 +12,50 @@ customElements.define('footer-component', Footer);
 
 // Designing the slider class
 
-class Slider {
-     constructor(mov, time, state){
-          this.mov = mov;
-          this.time = time;
-          this.state = state;
-     }
+// class Slider {
+//      constructor(mov, time, state){
+//           this.mov = mov;
+//           this.time = time;
+//           this.state = state;
+//      }
 
-     static parentSlides = "Slider";
-     static 
+//      static parentSlides = "Slider";
+//      static
 
-     getSlides() {
-          for (const slide of this.slides){
-               yield slide
-          }
-     }
+//      getSlides() {
+//           for (const slide of this.slides){
+//                yield slide
+//           }
+//      }
+// }
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides((slideIndex += n));
 }
 
-const parentSlider = document.querySelector('.parent-slider');
-const slides = parentSlider.querySelectorAll('.child-slider');
+function currentSlide(n) {
+  showSlides((slideIndex = n));
+}
 
-console.log(frames);
-
-slides.getSlides('left', '200', false)
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName('mySlides');
+  let dots = document.getElementsByClassName('dot');
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none';
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(' active', '');
+  }
+  slides[slideIndex - 1].style.display = 'block';
+  dots[slideIndex - 1].className += ' active';
+}

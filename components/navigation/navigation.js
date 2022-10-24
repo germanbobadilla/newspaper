@@ -1,3 +1,4 @@
+'use strict';
 import routes from './routes.js';
 
 export const addNavigation = () => {

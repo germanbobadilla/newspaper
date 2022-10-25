@@ -6,3 +6,10 @@ import { Footer } from './components/footer-component/footer-component.js';
 
 // Footer();
 customElements.define('footer-component', Footer);
+
+// Anja
+
+const slidesContainer = document.getElementById('slides-container');
+const slides = document.querySelector('.slide');
+const preButton = document.getElementById('slide-arrow-prev');
+const nextButton = document.getElementById('slide-arrow-next');

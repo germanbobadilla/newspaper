@@ -1,4 +1,3 @@
-'use strict';
 import routes from './routes.js';
 
 export const addNavigation = () => {
@@ -8,6 +7,6 @@ export const addNavigation = () => {
   const nav = document.getElementById('nav');
   const ul = document.createElement('ul');
   ul.setAttribute('class', 'navLinks');
-  nav.appendChild(ul);
   ul.innerHTML = navLinks;
+  nav.appendChild(ul);
 };

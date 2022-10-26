@@ -1,4 +1,3 @@
-'use strict';
 export const footerTemplate = document.createElement('template');
 
 footerTemplate.innerHTML = `

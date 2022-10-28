@@ -37,13 +37,26 @@ nav ul li a {
 }
 
 /* slider */
+.parent-carousel {
+  width: 50%;
+  background-color: aliceblue;
+}
+
 .children-container li h2 {
   padding-left: 30px;
 }
 
-.child-carousel img {
+.child-slide img {
   width: 540px;
   height: 340px;
+}
+
+.child-slide.block {
+  display: none;
+}
+
+.child-slide.active {
+  display: block;
 }
 
 .children-container li {

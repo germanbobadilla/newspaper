@@ -37,6 +37,18 @@ nav ul li a {
 }
 
 /* slider */
+.children-container li h2 {
+  padding-left: 30px;
+}
+
+.child-carousel img {
+  width: 540px;
+  height: 340px;
+}
+
+.children-container li {
+  list-style: none;
+}
 
 .slider-wrapper {
   margin: 1rem;

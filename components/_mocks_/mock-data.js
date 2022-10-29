@@ -1,5 +1,5 @@
-export default {
-  articles: [
+export const articles = {
+  items: [
     {
       source: {
         id: 'reuters',

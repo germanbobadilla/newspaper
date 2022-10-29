@@ -1,6 +1,4 @@
 export default {
-  status: 'ok',
-  totalResults: 2412,
   articles: [
     {
       source: {

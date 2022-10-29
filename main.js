@@ -2,7 +2,10 @@
 import { addNavigation } from './components/navigation/navigation.js';
 import { Footer } from './components/footer-component/footer-component.js';
 import { articles } from './components/_mocks_/mock-data.js';
-console.log(articles.items[2].title);
+const items = articles.items;
+// for (let i = 0; i < items.length; i++) {
+
+// }
 addNavigation();
 // import { fetchWeatherAPI } from './components/navigation/weather/weather-api.js';
 

@@ -3,6 +3,7 @@ import { addNavigation } from './components/navigation/navigation.js';
 import { Footer } from './components/footer-component/footer-component.js';
 import { articles } from './components/_mocks_/mock-data.js';
 const items = articles.items;
+let maxSlides = 10;
 // for (let i = 0; i < items.length; i++) {
 
 // }

@@ -20,8 +20,6 @@ function printTitles() {
   }
 }
 
-printTitles();
-
 // for (let i = 0; i < items.length; i++) {
 
 // }
@@ -30,3 +28,19 @@ addNavigation();
 
 // Footer();
 customElements.define('footer-component', Footer);
+
+//  Search
+
+const handleSearch = function (e) {
+  e.preventDefault();
+  let term = e.target.elements['search'].value;
+  let setTerm = term
+    .toLowerCase()
+    .split(' ')
+    .filter(function (token) {
+      return token.trim() !== '';
+    });
+  printTitles();
+};
+
+document.addEventListener('submit', handleSearch);

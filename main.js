@@ -6,7 +6,7 @@ const parentSlider = document.querySelector('.parent-carousel');
 
 function printTitles() {
   const getArticles = articles.items;
-  for (let i = 0; i < getArticles.length; i++) {
+  for (let i = 0; i < 10; i++) {
     const img = document.createElement('img');
     img.setAttribute('src', getArticles[i].urlToImage);
     img.setAttribute('class', 'article-image');

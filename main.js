@@ -2,8 +2,26 @@
 import { addNavigation } from './components/navigation/navigation.js';
 import { Footer } from './components/footer-component/footer-component.js';
 import { articles } from './components/_mocks_/mock-data.js';
-const items = articles.items;
-let maxSlides = 10;
+const parentSlider = document.querySelector('.parent-carousel');
+
+function printTitles() {
+  const getArticles = articles.items;
+  for (let i = 0; i < getArticles.length; i++) {
+    const img = document.createElement('img');
+    img.setAttribute('src', getArticles[i].urlToImage);
+    img.setAttribute('class', 'article-image');
+    const h2 = document.createElement('h2');
+    const pa = document.createElement('p');
+    h2.innerHTML = `${getArticles[i].title}<br>`;
+    pa.innerHTML = `${getArticles[i].description}`;
+    parentSlider.appendChild(h2);
+    parentSlider.appendChild(img);
+    parentSlider.appendChild(pa);
+  }
+}
+
+printTitles();
+
 // for (let i = 0; i < items.length; i++) {
 
 // }

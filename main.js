@@ -7,19 +7,18 @@ const parentSlider = document.querySelector('.parent-carousel');
 function printTitles() {
   const getArticles = articles.items;
   for (let i = 0; i < 10; i++) {
-    const img = document.createElement('img');
-    img.setAttribute('src', getArticles[i].urlToImage);
-    img.setAttribute('class', 'article-image');
-    const h2 = document.createElement('h2');
-    const pa = document.createElement('p');
-    h2.innerHTML = `${getArticles[i].title}<br>`;
-    pa.innerHTML = `${getArticles[i].description}`;
-    parentSlider.appendChild(h2);
-    parentSlider.appendChild(img);
-    parentSlider.appendChild(pa);
+    const slideContent = document.createElement('div');
+    slideContent.innerHTML = `
+    <div class="child-slide active" id="child-slide">
+      <img src="${getArticles[i].urlToImage}" alt="${getArticles.title}">
+      <h2>${getArticles[i].title}</h2>
+      <p>${getArticles[i].content}</p>
+    </div>
+    `;
+    parentSlider.appendChild(slideContent);
   }
 }
-
+printTitles();
 // for (let i = 0; i < items.length; i++) {
 
 // }
@@ -31,16 +30,16 @@ customElements.define('footer-component', Footer);
 
 //  Search
 
-const handleSearch = function (e) {
-  e.preventDefault();
-  let term = e.target.elements['search'].value;
-  let setTerm = term
-    .toLowerCase()
-    .split(' ')
-    .filter(function (token) {
-      return token.trim() !== '';
-    });
-  printTitles();
-};
+// const handleSearch = function (e) {
+//   e.preventDefault();
+//   let term = e.target.elements['search'].value;
+//   let setTerm = term
+//     .toLowerCase()
+//     .split(' ')
+//     .filter(function (token) {
+//       return token.trim() !== '';
+//     });
 
-document.addEventListener('submit', handleSearch);
+// };
+
+// document.addEventListener('submit', handleSearch);

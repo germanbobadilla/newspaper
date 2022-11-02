@@ -12,7 +12,7 @@ function printTitles() {
     <div class="child-slide active" id="child-slide">
       <img src="${getArticles[i].urlToImage}" alt="${getArticles.title}">
       <h2>${getArticles[i].title}</h2>
-      <p>${getArticles[i].content}</p>
+      <p>${getArticles[i].description}</p>
     </div>
     `;
     parentSlider.appendChild(slideContent);

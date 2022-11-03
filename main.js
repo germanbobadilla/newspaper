@@ -10,8 +10,8 @@ function printTitles() {
     const slideContent = document.createElement('div');
     slideContent.innerHTML = `
     <div class="child-slide active" id="child-slide">
-      <img src="${getArticles[i].urlToImage}" alt="${getArticles.title}">
-      <h2>${getArticles[i].title}</h2>
+      <a href=${getArticles[i].url} target="_blank"><img src="${getArticles[i].urlToImage}" alt="${getArticles.title}"></a>
+      <a href=${getArticles[i].url} target="_blank"><h2>${getArticles[i].title}</h2></a>
       <p>${getArticles[i].description}</p>
     </div>
     `;
@@ -19,6 +19,7 @@ function printTitles() {
   }
 }
 printTitles();
+
 // for (let i = 0; i < items.length; i++) {
 
 // }

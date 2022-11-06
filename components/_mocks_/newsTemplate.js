@@ -1,3 +1,5 @@
+import { articles } from './components/_mocks_/mock-data.js';
+
 export const newsTemplate = `
      <div class="child-slide active" id="child-slide">
       <a href=${getArticles[i].url} target="_blank"><img src="${getArticles[i].urlToImage}" alt="${getArticles.title}"></a>

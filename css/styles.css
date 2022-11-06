@@ -125,7 +125,8 @@ nav ul li a {
 }
 
 .sidebar {
-  width: 100%;
+  container-type: inline-size;
+  container-name: sidebar;
 }
 
 @container sidebar (min-width: 400px) {

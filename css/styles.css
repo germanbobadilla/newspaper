@@ -123,3 +123,14 @@ nav ul li a {
 .article-image {
   width: 50%;
 }
+
+.sidebar {
+  width: 100%;
+}
+
+@container sidebar (min-width: 400px) {
+  .card {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+}

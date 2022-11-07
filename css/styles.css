@@ -8,6 +8,11 @@ body {
   padding: 0;
   margin: 0;
   font-size: 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 header {
@@ -36,11 +41,7 @@ nav ul li a {
   text-decoration: none;
 }
 
-/* slider */
-.parent-carousel {
-  width: 50%;
-  background-color: aliceblue;
-}
+/* News Articles */
 
 .children-container li h2 {
   padding-left: 30px;
@@ -124,14 +125,13 @@ nav ul li a {
   width: 50%;
 }
 
-.sidebar {
-  container-type: inline-size;
-  container-name: sidebar;
+.parent-carousel {
+  display: flex;
+  flex-direction: column;
+  width: 768px;
+  align-items: center;
 }
 
-@container sidebar (min-width: 400px) {
-  .card {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-  }
+.child-slide {
+  width: 450px;
 }

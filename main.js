@@ -8,12 +8,14 @@ function printTitles() {
   const getArticles = articles.items;
   for (let i = 0; i < 10; i++) {
     const slideContent = document.createElement('div');
-    slideContent.innerHTML = `
-    <div class="child-slide active" id="child-slide">
-      <a href=${getArticles[i].url} target="_blank"><img src="${getArticles[i].urlToImage}" alt="${getArticles.title}"></a>
-      <a href=${getArticles[i].url} target="_blank"><h2>${getArticles[i].title}</h2></a>
-      <p>${getArticles[i].description}</p>
-    </div>
+    slideContent.innerHTML = `    
+      <div class="slide-content">  
+        <a href=${getArticles[i].url} target="_blank"><img src="${getArticles[i].urlToImage}" alt="${getArticles.title}"></a>
+        </div>
+      <div>
+        <a href=${getArticles[i].url} target="_blank"><h2>${getArticles[i].title}</h2></a>
+        <p>${getArticles[i].description}</p>
+      </div    
     `;
     parentSlider.appendChild(slideContent);
   }

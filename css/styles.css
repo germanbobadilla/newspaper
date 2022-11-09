@@ -136,6 +136,11 @@ nav ul li a {
   align-items: center;
 }
 
-.child-slide {
+.slide-content {
   width: 450px;
+  display: flex;
+}
+
+.slide-content img {
+  width: 250px;
 }

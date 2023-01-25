@@ -144,3 +144,11 @@ nav ul li a {
 .slide-content img {
   width: 250px;
 }
+
+#parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 400px;
+}

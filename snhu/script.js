@@ -1,14 +1,14 @@
-// Book Class: Represents a Book
-class Book {
-  constructor(title, author, isbn) {
-    this.title = title;
-    this.author = author;
-    this.isbn = isbn;
+class Course {
+  constructor(code, course, term, grade, total) {
+    this.code = code;
+    this.course = course;
+    this.term = term;
+    this.grade = grade;
+    this.total = total;
   }
 }
 
-// UI Class: Handle UI Tasks
-class UI {
+class Table {
   static displayBooks() {
     const books = Store.getBooks();
 

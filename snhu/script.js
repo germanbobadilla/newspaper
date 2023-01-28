@@ -1,3 +1,10 @@
+// class Book {
+//   constructor(title, author, isbn) {
+//     this.title = title;
+//     this.author = author;
+//     this.isbn = isbn;
+//   }
+// }
 class Course {
   constructor(code, course, term, grade, total) {
     this.code = code;
@@ -9,28 +16,43 @@ class Course {
 }
 
 class Table {
-  static displayBooks() {
-    const books = Store.getBooks();
+  // static displayBooks() {
+  //   const books = Store.getBooks();
 
-    books.forEach((book) => UI.addBookToList(book));
+  //   books.forEach((book) => UI.addBookToList(book));
+  // }
+  static displayCourses() {
+    const courses = StoredCourses.getCourses();
+    courses.forEach((course) => Table.addCourseToList);
   }
 
-  static addBookToList(book) {
-    const list = document.querySelector('#book-list');
+  // static addBookToList(book) {
+  //   const list = document.querySelector('#book-list');
 
+  //   const row = document.createElement('tr');
+
+  //   row.innerHTML = `
+  //        <td>${book.title}</td>
+  //        <td>${book.author}</td>
+  //        <td>${book.isbn}</td>
+  //        <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
+  //      `;
+
+  //   list.appendChild(row);
+  // }
+  static addCourseToTable(course) {
+    const list = document.querySelector('#courses');
     const row = document.createElement('tr');
-
     row.innerHTML = `
-         <td>${book.title}</td>
-         <td>${book.author}</td>
-         <td>${book.isbn}</td>
-         <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
-       `;
-
+    <td>${book.title}</td>
+    <td>${book.author}</td>
+    <td>${book.isbn}</td>
+    <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>    
+    `;
     list.appendChild(row);
   }
 
-  static deleteBook(el) {
+  static deleteCourse(el) {
     if (el.classList.contains('delete')) {
       el.parentElement.parentElement.remove();
     }

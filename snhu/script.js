@@ -14,7 +14,7 @@ class Course {
     this.total = total;
   }
 }
-
+// class UI
 class Table {
   // static displayBooks() {
   //   const books = Store.getBooks();

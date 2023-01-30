@@ -105,67 +105,73 @@ class Table {
 
 // Store Class: Handles Storage
 class StoredCourses {
-  static getBooks() {
-    let books;
-    if (localStorage.getItem('books') === null) {
-      books = [];
+  static getCourses() {
+    let courses;
+    if (localStorage.getItem('courses') === null) {
+      courses = [];
     } else {
-      books = JSON.parse(localStorage.getItem('books'));
+      courses = JSON.parse(localStorage.getItem('courses'));
     }
 
-    return books;
+    return courses;
   }
 
-  static addBook(book) {
-    const books = Store.getBooks();
-    books.push(book);
-    localStorage.setItem('books', JSON.stringify(books));
+  static addCourse(course) {
+    const courses = StoredCourses.getcourses();
+    courses.push(course);
+    localStorage.setItem('courses', JSON.stringify(courses));
   }
 
-  static removeBook(isbn) {
-    const books = Store.getBooks();
+  static removeCourse(code) {
+    const courses = StoredCourses.getcourses();
 
-    books.forEach((book, index) => {
-      if (book.isbn === isbn) {
-        books.splice(index, 1);
+    courses.forEach((course, index) => {
+      if (course.code === code) {
+        courses.splice(index, 1);
       }
     });
 
-    localStorage.setItem('books', JSON.stringify(books));
+    localStorage.setItem('courses', JSON.stringify(courses));
   }
 }
 
-// Event: Display Books
-document.addEventListener('DOMContentLoaded', UI.displayBooks);
+// Event: Display Courses
+document.addEventListener('DOMContentLoaded', Table.displayCourses);
 
-// Event: Add a Book
-document.querySelector('#book-form').addEventListener('submit', (e) => {
-  // Prevent actual submit
+// Event: Add a Course function
+document.querySelector('#course_form').addEventListener('submit', (e) => {
   e.preventDefault();
-
   // Get form values
-  const title = document.querySelector('#title').value;
-  const author = document.querySelector('#author').value;
-  const isbn = document.querySelector('#isbn').value;
+  const code = document.querySelector('#code').value;
+  const course = document.querySelector('#course').value;
+  const term = document.querySelector('#term').value;
+  const grade = document.querySelector('#grade').value;
+  const total = document.querySelector('#total').value;
 
   // Validate
-  if (title === '' || author === '' || isbn === '') {
-    UI.showAlert('Please fill in all fields', 'danger');
+  if (
+    code === '' ||
+    course === '' ||
+    term === '' ||
+    grade === '' ||
+    total === ''
+  ) {
+    Table.showAlert('Please fill in all fields', 'danger');
   } else {
-    // Instatiate book
-    const book = new Book(title, author, isbn);
+    // Instatiate course
+    const course = new Course(code, course, term, grade, total);
 
-    // Add Book to UI
-    UI.addBookToList(book);
+    // Add Course to Table
+    Table.addCourseToTable(course);
 
     // Add book to store
-    Store.addBook(book);
+    StoredCourses.addCourse(course);
 
     // Show success message
-    UI.showAlert('Book Added', 'success');
+    Tabke.showAlert('Course Added', 'success');
 
     // Clear fields
-    UI.clearFields();
+    Table.clearFields();
   }
 });
 

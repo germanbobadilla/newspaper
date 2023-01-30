@@ -11,15 +11,16 @@ class Course {
 class Table {
   static displayCourses() {
     const courses = StoredCourses.getCourses();
-    courses.forEach((course) => Table.addCourseToList);
+    console.log(courses);
+    courses.forEach((course) => Table.addCourseToList(course));
   }
 
-  static addCourseToTable(course) {
+  static addCourseToList(course) {
     const list = document.querySelector('#courses');
     const row = document.createElement('tr');
     row.innerHTML = `
     <td>${course.code}</td>
-    <td>${course.course}</td>
+    <td>${course.name}</td>
     <td>${course.term}</td>
     <td>${course.grade}</td>
     <td>${course.total}</td>
@@ -48,7 +49,7 @@ class Table {
 
   static clearFields() {
     document.querySelector('#code').value = '';
-    document.querySelector('#course').value = '';
+    document.querySelector('#name').value = '';
     document.querySelector('#term').value = '';
     document.querySelector('#grade').value = '';
     document.querySelector('#total').value = '';
@@ -74,7 +75,7 @@ class StoredCourses {
   }
 
   static removeCourse(code) {
-    const courses = StoredCourses.getcourses();
+    const courses = StoredCourses.getCourses();
     courses.forEach((course, index) => {
       if (course.code === code) {
         courses.splice(index, 1);
@@ -93,7 +94,7 @@ document.querySelector('#course_form').addEventListener('submit', (e) => {
   e.preventDefault();
   // Get form values
   const code = document.querySelector('#code').value;
-  const course = document.querySelector('#course').value;
+  const name = document.querySelector('#name').value;
   const term = document.querySelector('#term').value;
   const grade = document.querySelector('#grade').value;
   const total = document.querySelector('#total').value;
@@ -101,7 +102,7 @@ document.querySelector('#course_form').addEventListener('submit', (e) => {
   // Validate
   if (
     code === '' ||
-    course === '' ||
+    name === '' ||
     term === '' ||
     grade === '' ||
     total === ''
@@ -109,13 +110,13 @@ document.querySelector('#course_form').addEventListener('submit', (e) => {
     Table.showAlert('Please fill in all fields', 'danger');
   } else {
     // Instatiate course
-    const AddCourse = new Course(code, course, term, grade, total);
+    const course = new Course(code, name, term, grade, total);
 
     // Add Course to Table
-    Table.addCourseToTable(AddCourse);
+    Table.addCourseToTable(course);
 
     // Add book to store
-    StoredCourses.addCourse(AddCourse);
+    StoredCourses.addCourse(course);
 
     // Show success message
     Table.showAlert('Course Added', 'success');

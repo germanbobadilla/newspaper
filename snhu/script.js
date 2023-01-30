@@ -113,7 +113,7 @@ document.querySelector('#course_form').addEventListener('submit', (e) => {
     const course = new Course(code, name, term, grade, total);
 
     // Add Course to Table
-    Table.addCourseToTable(course);
+    Table.addCourseToList(course);
 
     // Add book to store
     StoredCourses.addCourse(course);
@@ -132,7 +132,9 @@ document.querySelector('#courses').addEventListener('click', (e) => {
   Table.deleteCourse(e.target);
 
   // Remove Course from store
-  StoredCourses.removeCourse(e.target.parentElement.parentElement.remove());
+  StoredCourses.removeCourse(
+    e.target.parentElement.previousElementSibling.textContent
+  );
 
   // Show success message
   Table.showAlert('Course Removed', 'success');

@@ -64,27 +64,47 @@ class Table {
     }
   }
 
+  // static showAlert(message, className) {
+  //   const div = document.createElement('div');
+  //   div.className = `alert alert-${className}`;
+  //   div.appendChild(document.createTextNode(message));
+  //   const container = document.querySelector('.container');
+  //   const form = document.querySelector('#book-form');
+  //   container.insertBefore(div, form);
+
+  //   // Vanish in 3 seconds
+  //   setTimeout(() => document.querySelector('.alert').remove(), 3000);
+  // }
+
   static showAlert(message, className) {
     const div = document.createElement('div');
     div.className = `alert alert-${className}`;
     div.appendChild(document.createTextNode(message));
-    const container = document.querySelector('.container');
-    const form = document.querySelector('#book-form');
+    const container = document.querySelector('.form-wrapper');
+    const form = document.querySelector('#course_form');
     container.insertBefore(div, form);
 
     // Vanish in 3 seconds
     setTimeout(() => document.querySelector('.alert').remove(), 3000);
   }
 
+  // static clearFields() {
+  //   document.querySelector('#title').value = '';
+  //   document.querySelector('#author').value = '';
+  //   document.querySelector('#isbn').value = '';
+  // }
+
   static clearFields() {
-    document.querySelector('#title').value = '';
-    document.querySelector('#author').value = '';
-    document.querySelector('#isbn').value = '';
+    document.querySelector('#code').value = '';
+    document.querySelector('#course').value = '';
+    document.querySelector('#term').value = '';
+    document.querySelector('#grade').value = '';
+    document.querySelector('#total').value = '';
   }
 }
 
 // Store Class: Handles Storage
-class Store {
+class StoredCourses {
   static getBooks() {
     let books;
     if (localStorage.getItem('books') === null) {

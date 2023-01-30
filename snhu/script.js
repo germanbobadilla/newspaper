@@ -1,10 +1,3 @@
-// class Book {
-//   constructor(title, author, isbn) {
-//     this.title = title;
-//     this.author = author;
-//     this.isbn = isbn;
-//   }
-// }
 class Course {
   constructor(code, course, term, grade, total) {
     this.code = code;
@@ -14,67 +7,32 @@ class Course {
     this.total = total;
   }
 }
-// class UI
-class Table {
-  // static displayBooks() {
-  //   const books = Store.getBooks();
 
-  //   books.forEach((book) => UI.addBookToList(book));
-  // }
+class Table {
   static displayCourses() {
     const courses = StoredCourses.getCourses();
     courses.forEach((course) => Table.addCourseToList);
   }
 
-  // static addBookToList(book) {
-  //   const list = document.querySelector('#book-list');
-
-  //   const row = document.createElement('tr');
-
-  //   row.innerHTML = `
-  //        <td>${book.title}</td>
-  //        <td>${book.author}</td>
-  //        <td>${book.isbn}</td>
-  //        <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
-  //      `;
-
-  //   list.appendChild(row);
-  // }
   static addCourseToTable(course) {
     const list = document.querySelector('#courses');
     const row = document.createElement('tr');
     row.innerHTML = `
-    <td>${book.title}</td>
-    <td>${book.author}</td>
-    <td>${book.isbn}</td>
+    <td>${course.code}</td>
+    <td>${course.course}</td>
+    <td>${course.term}</td>
+    <td>${course.grade}</td>
+    <td>${course.total}</td>
     <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>    
     `;
     list.appendChild(row);
   }
-
-  // static deleteBook(el) {
-  //   if (el.classList.contains('delete')) {
-  //     el.parentElement.parentElement.remove();
-  //   }
-  // }
 
   static deleteCourse(el) {
     if (el.classList.contains('delete')) {
       el.parentElement.parentElement.remove();
     }
   }
-
-  // static showAlert(message, className) {
-  //   const div = document.createElement('div');
-  //   div.className = `alert alert-${className}`;
-  //   div.appendChild(document.createTextNode(message));
-  //   const container = document.querySelector('.container');
-  //   const form = document.querySelector('#book-form');
-  //   container.insertBefore(div, form);
-
-  //   // Vanish in 3 seconds
-  //   setTimeout(() => document.querySelector('.alert').remove(), 3000);
-  // }
 
   static showAlert(message, className) {
     const div = document.createElement('div');
@@ -87,12 +45,6 @@ class Table {
     // Vanish in 3 seconds
     setTimeout(() => document.querySelector('.alert').remove(), 3000);
   }
-
-  // static clearFields() {
-  //   document.querySelector('#title').value = '';
-  //   document.querySelector('#author').value = '';
-  //   document.querySelector('#isbn').value = '';
-  // }
 
   static clearFields() {
     document.querySelector('#code').value = '';
@@ -112,19 +64,17 @@ class StoredCourses {
     } else {
       courses = JSON.parse(localStorage.getItem('courses'));
     }
-
     return courses;
   }
 
   static addCourse(course) {
-    const courses = StoredCourses.getcourses();
+    const courses = StoredCourses.getCourses();
     courses.push(course);
     localStorage.setItem('courses', JSON.stringify(courses));
   }
 
   static removeCourse(code) {
     const courses = StoredCourses.getcourses();
-
     courses.forEach((course, index) => {
       if (course.code === code) {
         courses.splice(index, 1);
@@ -159,30 +109,30 @@ document.querySelector('#course_form').addEventListener('submit', (e) => {
     Table.showAlert('Please fill in all fields', 'danger');
   } else {
     // Instatiate course
-    const course = new Course(code, course, term, grade, total);
+    const AddCourse = new Course(code, course, term, grade, total);
 
     // Add Course to Table
-    Table.addCourseToTable(course);
+    Table.addCourseToTable(AddCourse);
 
     // Add book to store
-    StoredCourses.addCourse(course);
+    StoredCourses.addCourse(AddCourse);
 
     // Show success message
-    Tabke.showAlert('Course Added', 'success');
+    Table.showAlert('Course Added', 'success');
 
     // Clear fields
     Table.clearFields();
   }
 });
 
-// Event: Remove a Book
-document.querySelector('#book-list').addEventListener('click', (e) => {
-  // Remove book from UI
-  UI.deleteBook(e.target);
+// Event: Remove a Course
+document.querySelector('#courses').addEventListener('click', (e) => {
+  // Remove Course from UI
+  Table.deleteCourse(e.target);
 
-  // Remove book from store
-  Store.removeBook(e.target.parentElement.previousElementSibling.textContent);
+  // Remove Course from store
+  StoredCourses.removeCourse(e.target.parentElement.parentElement.remove());
 
   // Show success message
-  UI.showAlert('Book Removed', 'success');
+  Table.showAlert('Course Removed', 'success');
 });

@@ -4,8 +4,6 @@ html,
 ::before {
   margin: 0px;
   padding: 0px;
-  width: 100vw;
-  height: 100vh;
 }
 
 body {
@@ -13,14 +11,14 @@ body {
   justify-content: center;
 }
 
-.container {
+.wrapper {
   width: 100%;
 }
 
 .form-wrapper {
-  width: 100%;
+  width: 40%;
 }
 
 .table {
-  width: 100%;
+  width: 60%;
 }

@@ -78,7 +78,7 @@ class StoredCourses {
     const courses = StoredCourses.getCourses();
     courses.forEach((course, index) => {
       if (course.code === code) {
-        courses.splice(index, 1);
+        localStorage.removeItem('code');
       }
     });
 

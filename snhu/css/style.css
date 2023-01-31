@@ -1,14 +1,23 @@
 body,
 html,
 ::after,
-::before {
+::before,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   margin: 0px;
   padding: 0px;
+  box-sizing: border-box;
 }
 
 body {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
 }
 
@@ -22,4 +31,13 @@ body {
 
 .table {
   width: 700px;
+}
+
+.form-group-costs {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group-costs > label input {
+  margin-left: 20px;
 }

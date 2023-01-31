@@ -3,6 +3,9 @@ import { Course, Table, StoredCourses } from './classes/classes.js';
 // Event: Display Courses
 document.addEventListener('DOMContentLoaded', Table.displayCourses);
 
+const tds = document.getElementsByTagName('td');
+console.log(tds);
+
 // Event: Add a Course function
 document.querySelector('#course_form').addEventListener('submit', (e) => {
   e.preventDefault();
@@ -37,6 +40,8 @@ document.querySelector('#course_form').addEventListener('submit', (e) => {
 
     // Clear fields
     Table.clearFields();
+
+    sumTotal();
   }
 });
 
@@ -54,4 +59,17 @@ document.querySelector('#courses').addEventListener('click', (e) => {
 
   // Show success message
   Table.showAlert('Course Removed', 'success');
+  console.log(sumTotals());
 });
+
+// function sumTotals() {
+//   const courses = StoredCourses.getCourses();
+//   const totalTerm = courses.totals;
+//   console.log(totalTerm);
+//   // const tds = [...document.querySelectorAll('.totals')].reduce((totals, td) => {
+//   //   return parseFloat(td.textContent) + totals;
+//   // }, 0);
+//   // return tds;
+// }
+
+// console.log(sumTotals());

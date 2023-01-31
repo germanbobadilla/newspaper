@@ -22,7 +22,7 @@ export class Table {
        <td>${course.name}</td>
        <td>${course.term}</td>
        <td>${course.grade}</td>
-       <td>${course.total}</td>
+       <td class="totals">${course.total}</td>
        <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>    
        `;
     list.appendChild(row);

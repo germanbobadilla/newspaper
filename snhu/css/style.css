@@ -9,6 +9,7 @@ html,
 body {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .wrapper {
@@ -16,9 +17,9 @@ body {
 }
 
 .form-wrapper {
-  width: 40%;
+  width: 300px;
 }
 
 .table {
-  width: 60%;
+  width: 700px;
 }

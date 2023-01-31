@@ -1,5 +1,4 @@
-'use-strict';
-import { Course, Table, StoredCourses } from './classes';
+import { Course, Table, StoredCourses } from './classes/classes.js';
 
 // Event: Display Courses
 document.addEventListener('DOMContentLoaded', Table.displayCourses);

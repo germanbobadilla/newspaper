@@ -1,7 +1,7 @@
 class Course {
-  constructor(code, course, term, grade, total) {
+  constructor(code, name, term, grade, total) {
     this.code = code;
-    this.course = course;
+    this.name = name;
     this.term = term;
     this.grade = grade;
     this.total = total;
@@ -11,7 +11,6 @@ class Course {
 class Table {
   static displayCourses() {
     const courses = StoredCourses.getCourses();
-    console.log(courses);
     courses.forEach((course) => Table.addCourseToList(course));
   }
 
@@ -78,7 +77,7 @@ class StoredCourses {
     const courses = StoredCourses.getCourses();
     courses.forEach((course, index) => {
       if (course.code === code) {
-        localStorage.removeItem('courses');
+        courses.splice(index, 1);
       }
     });
 
@@ -115,7 +114,7 @@ document.querySelector('#course_form').addEventListener('submit', (e) => {
     // Add Course to Table
     Table.addCourseToList(course);
 
-    // Add book to store
+    // Add course to store
     StoredCourses.addCourse(course);
 
     // Show success message
@@ -128,12 +127,14 @@ document.querySelector('#course_form').addEventListener('submit', (e) => {
 
 // Event: Remove a Course
 document.querySelector('#courses').addEventListener('click', (e) => {
-  // Remove Course from UI
+  // Remove Course from Table
   Table.deleteCourse(e.target);
 
   // Remove Course from store
   StoredCourses.removeCourse(
-    e.target.parentElement.previousElementSibling.textContent
+    e.target.parentElement.previousElementSibling.previousElementSibling
+      .previousElementSibling.previousElementSibling.previousElementSibling
+      .textContent
   );
 
   // Show success message

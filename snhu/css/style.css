@@ -1,0 +1,4 @@
+body, html, ::after, ::before {
+     margin: 0px;
+     padding: 0px;
+}

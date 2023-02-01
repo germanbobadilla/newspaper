@@ -7,14 +7,10 @@ document.addEventListener(
   totalPerTerm()
 );
 
-// const para = document.querySelector('#contenttotal');
-// const totalOfCourse = StoredCourses.forEachTotal(total).toString();
-// para.innerHTML = totalOfCourse;
-
 function totalPerTerm() {
   const para = document.querySelector('#contenttotal');
   const totalOfCourse = StoredCourses.forEachTotal(total).toString();
-  para.innerHTML = totalOfCourse;
+  para.textContent = `$${totalOfCourse}`;
 }
 
 // Event: Add a Course function
@@ -67,5 +63,6 @@ document.querySelector('#courses').addEventListener('click', (e) => {
   );
 
   // Show success message
+  location.reload();
   Table.showAlert('Course Removed', 'success');
 });

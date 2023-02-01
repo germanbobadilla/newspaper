@@ -83,4 +83,25 @@ export class StoredCourses {
 
     localStorage.setItem('courses', JSON.stringify(courses));
   }
+
+  // static forEachTotal(total) {
+  //   let courses;
+  //   if (localStorage.getItem('courses') === null) {
+  //     courses = [];
+  //   } else {
+  //     courses = JSON.parse(localStorage.getItem('courses'));
+  //     const data = courses.map((el) => parseFloat(el.total));
+  //     return data.reduce((a, b) => a + b);
+  //   }
+  // }
+
+  static forEachTotal(total) {
+    let courses;
+    if (localStorage.getItem('courses') === null) {
+      courses = [];
+    } else {
+      courses = JSON.parse(localStorage.getItem('courses'));
+      return courses.reduce((total, course) => total + course.total, 0);
+    }
+  }
 }

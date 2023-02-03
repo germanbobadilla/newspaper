@@ -42,20 +42,19 @@ body {
   justify-content: center;
 }
 
-table {
+/* table {
   width: 100vw;
-}
+} */
 
 .form-wrapper {
-  width: 50%;
-  justify-content: center;
-  margin: 0 auto;
+  width: 35%;
+  margin: 0 15px;
 }
 
 .table {
-  width: 700px;
+  width: 65%;
 }
 
 input [type='submit'] {
-  width: 100%;
+  width: 75%;
 }

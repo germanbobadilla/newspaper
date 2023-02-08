@@ -1,18 +1,4 @@
-class MakeCarrousel {
-  constructor(id, width, height, animate, time) {
-    this.id = id;
-    this.width = width;
-    this.height = height;
-    this.animate = animate;
-    this.time = time;
-    this.dots = dots;
-    this.arrow = arrows;
-  }
-
-  animate() {}
-}
-
-function createSlide(id, parent, width, height) {
+function create(id, parent, width, height) {
   let divWrapper = document.createElement('div');
   let canvasElem = document.createElement('canvas');
   parent.appendChild(divWrapper);

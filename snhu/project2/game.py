@@ -103,7 +103,7 @@ countries = [
 score = 0
 
 
-def diamond_picker():
+def diamond_collector():
     return random.choice(countries)
 
 
@@ -122,7 +122,7 @@ def play_game():
     current_country = random.choice(countries)
     print(f"You are now in {current_country[0]}")
 
-    villain = diamond_picker()
+    villain = diamond_collector()
 
     while countries:
         door = ask_door(current_country)

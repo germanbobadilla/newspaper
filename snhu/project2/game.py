@@ -113,7 +113,8 @@ def ask_door(country):
             f"Which door would you like to enter {country[0]} through (North, South, East, West)? ")
         if door in country:
             return door
-        print("Invalid door. Please enter a valid door.")
+        print(
+            f"{door} doesn't give you access to {country[0]}. Please enter a valid door.")
 
 
 def play_game():

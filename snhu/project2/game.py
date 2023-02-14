@@ -84,6 +84,20 @@ inventory = []
 win = False
 
 
+def show_commands():
+    """Display the list of available commands to the player"""
+    print("Available commands:")
+    print("- go [North/East/South/West]")
+    print("- get [item name]")
+
+
+def show_status():
+    """Display the player's current status"""
+    print("You are in:", location)
+    print("Inventory:", inventory)
+    print("Items in the room:", rooms[location])
+
+
 def main():
     global location, inventory, win
     # Show the instructions and the player's starting status

@@ -66,3 +66,62 @@ def play_game():
 
 
 play_game()
+
+
+# With Main function
+
+# Define a dictionary of rooms and their connections
+rooms = {
+    'Great Hall': {'South': 'Bedroom', 'North': 'Dungeon', 'East': 'Kitchen', 'West': 'Library'},
+    'Bedroom': {'North': 'Great Hall', 'East': 'Cellar', 'item': 'Armor'},
+    'Cellar': {'West': 'Bedroom', 'item': 'Helmet'},
+    'Dining Room': {'South': 'Kitchen', 'item': 'Dragon'}  # villain
+}
+
+# Initialize the player's starting location, inventory, and win condition
+location = 'Great Hall'
+inventory = []
+win = False
+
+
+def main():
+    global location, inventory, win
+    # Show the instructions and the player's starting status
+    show_instructions()
+    show_status()
+
+    # Main game loop
+    while not win:
+        # Get the player's command
+        command = input("Enter your command: ")
+        # Parse the player's command
+        if command.startswith("go"):
+            # Extract the direction from the command
+            direction = command.split()[1]
+            # Check if the direction is valid
+            if direction in rooms[location]:
+                location = rooms[location][direction]
+                # Check if the player has picked up the item in the new room
+                if 'item' in rooms[location]:
+                    item = rooms[location]['item']
+                    inventory.append(item)
+                    print("You picked up a", item)
+                    del rooms[location]['item']
+            else:
+                print("You can't go that way.")
+        elif command == "get Dragon":
+            # Check if the player has found the villain
+            if location == 'Dining Room':
+                win = True
+                print("You have defeated the dragon and won the game!")
+            else:
+                print("The dragon is not here.")
+        else:
+            print("Invalid command.")
+        # Show the player's updated status
+        show_status()
+
+
+# Call the main function to start the game
+if __name__ == "__main__":
+    main()

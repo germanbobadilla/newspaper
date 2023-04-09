@@ -15,19 +15,54 @@
   <!-- Create a header main menu -->
   <header>
     <nav>
-      <ul>
-        <li><a id="news-button" href="#">News</a></li>
-        <li>
-          <ul>
-            <li><a href="#">Local</a></li>
-            <li><a href="#">International</a></li>
+      <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a>
+          <ul class="submenu">
+            <li><a href="#">Our Team</a></li>
+            <li><a href="#">Our Mission</a></li>
+            <li><a href="#">Our History</a></li>
           </ul>
         </li>
-        <li><a href="#">Politics</a></li>
-        <li><a href="#">Interviews</a></li>
+        <li><a href="#">Services</a>
+          <ul class="submenu">
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Graphic Design</a></li>
+            <li><a href="#">Marketing</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Contact</a></li>
       </ul>
     </nav>
+
   </header>
+  <!-- Create a button that opens a modal -->
+  <button id="open-modal">Open Modal</button>
+  <!-- Create a modal -->
+  <!-- The button above opens a modal that has a form -->
+  <!-- The form changes the background color from white to black -->
+  <!-- The form changes the text color from black to white -->
+  <!-- The form changes the font family to Arial -->
+  <!-- The form allows the user to change the font-size -->
+
+  <div class="modal">
+    <form action="">
+      <label for="background-color">Background Color</label>
+      <input type="color" name="background-color" id="background-color">
+      <label for="text-color">Text Color</label>
+      <input type="color" name="text-color" id="text-color">
+      <label for="font-family">Font Family</label>
+      <select name="font-family" id="font-family">
+        <option value="Arial">Arial</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Courier New">Courier New</option>
+      </select>
+      <label for="font-size">Font Size</label>
+      <input type="range" name="font-size" id="font-size" min="10" max="50">
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
   <!-- 2 -->
   <!-- On css/styles.css style the navigation menu -->
   <script src="main.js" type="module"></script>

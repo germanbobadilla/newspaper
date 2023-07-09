@@ -1,15 +1,27 @@
 // Create a hamburger menu that it gets displayed when resizing the window
 // to a smaller size.
-function main() {
-  const menu = document.querySelector('.menu');
-  const menuButton = document.querySelector('.menu-button');
-  const menuClose = document.querySelector('.menu-close');
 
-  menuButton.addEventListener('click', () => {
-    menu.classList.add('menu--open');
-  });
+import slider from './module/slider.js';
 
-  menuClose.addEventListener('click', () => {
-    menu.classList.remove('menu--open');
-  });
-}
+const images = [
+  'images/hamburger1.jpg',
+  'images/hamburger2.jpg',
+  'images/hamburger3.jpg',
+  'images/hamburger4.jpg',
+  'images/hamburger5.jpg',
+];
+
+const sliderElement = document.querySelector('.slider');
+const sliderImage = document.querySelector('.slider__image');
+const sliderNext = document.querySelector('.slider__button--next');
+const sliderPrev = document.querySelector('.slider__button--prev');
+
+const sliderInstance = slider(images);
+
+sliderNext.addEventListener('click', () => {
+    sliderImage.src = sliderInstance.next();
+});
+
+sliderPrev.addEventListener('click', () => {
+    sliderImage.src = sliderInstance.prev();
+});
